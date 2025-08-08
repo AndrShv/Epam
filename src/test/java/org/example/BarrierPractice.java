@@ -7,10 +7,10 @@ public class BarrierPractice {
     public static void main(String[] args) {
         Runnable barrierAction = () -> System.out.println("Round is complete. All threads have reached the barrier. Proceeding...");
 
-        CyclicBarrier barrier = new CyclicBarrier(3, barrierAction);
+        CyclicBarrier barrier = new CyclicBarrier(3, barrierAction); // ждем пока 3 потока дойдут до барьера
 
         Runnable playGame = () -> {
-            for (int i = 0; i <= 3; i++) {
+         //   for (int i = 0; i <= 3; i++) {
                 System.out.println(Thread.currentThread().getName() + " is preparing for the game...");
 
                 try {
@@ -25,7 +25,7 @@ public class BarrierPractice {
                 } finally {
                     System.out.println(Thread.currentThread().getName() + " has finished its turn and waiting for a new game.");
                 }
-            }
+         //   }
         };
 
         new Thread(playGame).start();

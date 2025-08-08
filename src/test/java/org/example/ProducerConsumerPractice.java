@@ -14,7 +14,7 @@ public class ProducerConsumerPractice {
             try {
                 for (int i = 0; i < 10; i++) {
                     String item = "Item " + itemCount.incrementAndGet();
-                    queue.put(item); // блокирует, если очередь полна
+                    queue.put(item);// блокирует, если очередь полна
                     System.out.println("Produced: " + item);
                     Thread.sleep(500); // имитируем время производства
                 }
@@ -30,7 +30,7 @@ public class ProducerConsumerPractice {
         Runnable consume = () -> {
             try {
                 for (int i = 0; i < 10; i++) {
-                    String item = queue.take();
+                    String item = queue.take(); //освобождает очередь
                     System.out.println("Consumed: " + item);
                     Thread.sleep(1000); // имитируем время потребления
                 }

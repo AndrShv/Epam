@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 public class CountDownLatchPractice {
     public static void main(String[] args) {
 
-        CountDownLatch latch = new CountDownLatch(5);
+        CountDownLatch latch = new CountDownLatch(5); // создаем счетчик на 5,  главный поток будет ждать, пока 3 других потока вызовут countDown()
         Runnable doRace = () -> {
             System.out.println(Thread.currentThread().getName() + "started the race");
             try {
@@ -14,7 +14,7 @@ public class CountDownLatchPractice {
                 e.printStackTrace();
             } finally {
                 System.out.println(Thread.currentThread().getName() + "finished the race");
-                latch.countDown(); // уменьшаем счетчик
+                latch.countDown(); // уменьшаем счетчик, когда = 0, главный поток продолжит выполнение
             }
         };
 
