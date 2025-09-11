@@ -2,8 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.example</groupId>
-  <artifactId>Epam</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <artifactId>Epam</artifactId>
+  <version>1.1-SNAPSHOT</version>
   <name>Archetype - Epam</name>
   <url>http://maven.apache.org</url>
     <properties>
@@ -25,8 +26,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.32</version>
-            <scope>provided</scope>
+            <version>1.18.40</version>
         </dependency>
 
         <!-- Web & Security -->
@@ -46,6 +46,16 @@
         <!-- Spring Security Core -->
 
 
+        <!-- Spring Web Generating -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
 
         <!-- Swagger -->
@@ -61,11 +71,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.7.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -100,6 +105,14 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
 
+
+        <!-- Jakarta Servlet API -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- Apache HTTP Client -->
         <dependency>
@@ -162,8 +175,14 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.2.2</version>
             </plugin>
         </plugins>
     </build>
